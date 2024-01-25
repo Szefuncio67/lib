@@ -17,9 +17,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import androidx.appcompat.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import retrofit2.Callback;
 import retrofit2.Response;
 
@@ -27,6 +30,7 @@ import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -36,6 +40,7 @@ public class HomeScreen extends AppCompatActivity {
 
     TextView tName;
     SearchView searchView;
+    Button btnFavorites;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +53,16 @@ public class HomeScreen extends AppCompatActivity {
         tName = findViewById(R.id.name);
         String name = getIntent().getStringExtra("name");
         tName.setText(name);
+        btnFavorites = findViewById(R.id.xdd);
+        btnFavorites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String userId = getIntent().getStringExtra("userId");
+                Intent intent = new Intent(HomeScreen.this, FavoritesActivityZ.class);
+                intent.putExtra("userId", userId);
+                startActivity(intent);
+            }
+        });
 
         searchView = findViewById(R.id.search_book);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -119,6 +134,7 @@ public class HomeScreen extends AppCompatActivity {
         private TextView numberOfPagesTextView;
         private ImageView bookCover;
         private Book book;
+        private Button btnAddToFavorites;
 
         public BookHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.book_list_item, parent, false));
@@ -128,6 +144,52 @@ public class HomeScreen extends AppCompatActivity {
             bookAuthorTextView = itemView.findViewById(R.id.book_author);
             numberOfPagesTextView = itemView.findViewById(R.id.number_of_pages);
             bookCover = itemView.findViewById(R.id.img_cover);
+            btnAddToFavorites = itemView.findViewById(R.id.btn_add_to_favorites);
+            btnAddToFavorites.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Obsługa dodawania do ulubionych
+                    addToFavorites(book);
+                }
+            });
+
+        }
+
+        private void addToFavorites(Book book) {
+            UserDatabase userDatabase = UserDatabase.getUserDatabase(itemView.getContext());
+            final UserDao userDao = userDatabase.userDao();
+
+            // Assuming you have the userId from the logged-in user
+            String userId = getIntent().getStringExtra("userId"); // Replace with the actual userId
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    // Check if the book is already in favorites
+                    if (userDao.isBookInFavorites(userId, book.getTitle()) == null) {
+                        // If not, add the book to favorites
+                        FavoriteBook favoriteBook = new FavoriteBook();
+                        favoriteBook.setUserId(userId);
+                        favoriteBook.setBookTitle(book.getTitle());
+
+                        userDao.addToFavorites(favoriteBook);
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(itemView.getContext(), "Book added to favorites", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    } else {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(itemView.getContext(), "Book is already in favorites", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                }
+            }).start();
         }
 
         public void bind(Book book) {

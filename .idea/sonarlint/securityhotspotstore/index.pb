@@ -27,3 +27,9 @@ b
 2app/src/main/java/com/example/lib/BookService.java,b\2\b227bf973fce79b00d4e9a608a37ebea3ce17d20
 b
 2app/src/main/java/com/example/lib/BookDetails.java,3\7\376d8f37b6852a695e27384bc5407a047e871ec7
+j
+:app/src/main/java/com/example/lib/FavoriteBookAdapter.java,b\e\bee52777310bc90e4ec1ac4135ff68bb52cb9800
+c
+3app/src/main/java/com/example/lib/FavoriteBook.java,a\2\a2b5602cc323ed2e7ebc25cea8f798ba43a5d6b1
+i
+9app/src/main/java/com/example/lib/FavoritesActivityZ.java,7\0\7078ca6e73160b077600ccdb13c3527230defbe6

@@ -47,6 +47,22 @@
             android:layout_alignStart="@+id/book_author"
             android:textAppearance="?attr/textAppearanceListItem" />
 
+        <Button
+            android:id="@+id/btn_add_to_favorites"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add to Favorites"
+            android:layout_below="@+id/number_of_pages"
+            android:layout_marginTop="8dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"/>
+
+
+
+
+
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
