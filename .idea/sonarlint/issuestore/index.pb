@@ -15,3 +15,15 @@ c
 ,app/src/main/java/com/example/lib/Login.java,f\e\fe3c5bd2389ef9868a2b52e6c71194840bdc6255
 a
 1app/src/main/java/com/example/lib/HomeScreen.java,b\7\b74ded016ae81ca9e2cb8cead7d879c45406a59a
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+[
++app/src/main/java/com/example/lib/Book.java,f\e\fe8f3569737848976c3487146857b331bbbdc50e
+d
+4app/src/main/java/com/example/lib/BookContainer.java,2\d\2d745134083d42dededcfe3d0d9e81efa07df74b
+g
+7app/src/main/java/com/example/lib/RetrofitInstance.java,e\b\eb359b840d7c958975476da9daa941adb1ad5fba
+b
+2app/src/main/java/com/example/lib/BookService.java,b\2\b227bf973fce79b00d4e9a608a37ebea3ce17d20
+b
+2app/src/main/java/com/example/lib/BookDetails.java,3\7\376d8f37b6852a695e27384bc5407a047e871ec7

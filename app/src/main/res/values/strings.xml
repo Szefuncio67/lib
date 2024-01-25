@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">lib</string>
+    <string name="book_cover">Book cover</string>
+    <string name="search">Search</string>
+    <string name="clear_search">Clear search</string>
+    <string name="book_download_failure">Something went wrong... Please try later!</string>
+    <string name="title_activity_book_details">BookDetails</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="number_of_pages">Number of pages: %s</string>
 </resources>

@@ -4,6 +4,12 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
+    <style name="Base.Theme.OpenLibraryApp" parent="Theme.Material3.DayNight">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:colorBackground">@color/green</item>
+    </style>
 
+    <style name="Theme.OpenLibraryApp" parent="Base.Theme.OpenLibraryApp" />
     <style name="Theme.Lib" parent="Base.Theme.Lib" />
 </resources>
