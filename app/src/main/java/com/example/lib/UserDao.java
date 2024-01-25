@@ -3,6 +3,7 @@ package com.example.lib;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -18,11 +19,14 @@ public interface UserDao {
     @Insert
     void addToFavorites(FavoriteBook favoriteBook);
 
-    @Query("SELECT * FROM favorite_books WHERE userId = :userId AND bookTitle = :bookTitle")
-    FavoriteBook isBookInFavorites(String userId, String bookTitle);
+    @Query("SELECT * FROM favorite_books WHERE userId = :userId AND bookTitle = :bookTitle AND bookAuthor = :bookAuthor")
+    FavoriteBook isBookInFavorites(String userId, String bookTitle, String bookAuthor);
 
     @Query("SELECT * FROM favorite_books WHERE userId = :userId")
     List<FavoriteBook> getFavoriteBooks(String userId);
+
+    @Update
+    void updateFavoriteBook(FavoriteBook favoriteBook);
 
 
 }

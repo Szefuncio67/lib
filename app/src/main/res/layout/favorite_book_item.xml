@@ -1,15 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    card_view:cardCornerRadius="6dp"
+    card_view:cardElevation="3dp"
+    card_view:cardUseCompatPadding="true">
 
-    <TextView
-        android:id="@+id/bookTitleFavorite"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:padding="8dp" />
+        android:orientation="horizontal">
 
-    <!-- Dodaj inne pola, takie jak autor, ilość stron itp., według potrzeb -->
-</LinearLayout>
+        <ImageView
+            android:id="@+id/img_cover"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="25dp"
+            android:scaleType="centerInside"
+            android:contentDescription="Book cover" />
+
+        <TextView
+            android:id="@+id/book_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:layout_toEndOf="@+id/img_cover"
+            android:layout_alignTop="@+id/img_cover" />
+
+        <TextView
+            android:id="@+id/book_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/book_title"
+            android:layout_alignStart="@+id/book_title"
+            android:textAppearance="?attr/textAppearanceListItem" />
+
+        <TextView
+            android:id="@+id/number_of_pages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/book_author"
+            android:layout_alignStart="@+id/book_author"
+            android:textAppearance="?attr/textAppearanceListItem" />
+
+        <!-- RadioGroup for the checkboxes -->
+        <RadioGroup
+            android:id="@+id/radioGroup_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/number_of_pages"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <!-- RadioButton for Unread -->
+            <RadioButton
+                android:id="@+id/radioButton_unread"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unread" />
+
+            <!-- RadioButton for In Progress -->
+            <RadioButton
+                android:id="@+id/radioButton_in_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="In Progress" />
+
+            <!-- RadioButton for Read -->
+            <RadioButton
+                android:id="@+id/radioButton_read"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Read" />
+
+        </RadioGroup>
+
+        <!-- Edit Text for Current Page (visible only when "In Progress" is checked) -->
+        <EditText
+            android:id="@+id/editText_current_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioGroup_status"
+            android:layout_marginTop="8dp"
+            android:hint="Current Page"
+            android:inputType="number"
+            android:visibility="gone" />
+
+
+
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -119,11 +119,22 @@ public class HomeScreen extends AppCompatActivity {
     }
 
     private void setupBookListView(List<Book> books) {
+        List<Book> filteredBooks = filterIncompleteBooks(books);
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         final BookAdapter adapter = new BookAdapter();
-        adapter.setBooks(books);
+        adapter.setBooks(filteredBooks);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    private List<Book> filterIncompleteBooks(List<Book> books) {
+        List<Book> filteredBooks = new ArrayList<>();
+        for (Book book : books) {
+            if (book != null && checkNullOrEmpty(book.getTitle()) && book.getAuthors() != null) {
+                filteredBooks.add(book);
+            }
+        }
+        return filteredBooks;
     }
 
     public boolean checkNullOrEmpty(String text) {
@@ -169,11 +180,14 @@ public class HomeScreen extends AppCompatActivity {
                 @Override
                 public void run() {
                     // Check if the book is already in favorites
-                    if (userDao.isBookInFavorites(userId, book.getTitle()) == null) {
+                    if (userDao.isBookInFavorites(userId, book.getTitle(), TextUtils.join(", ", book.getAuthors())) == null) {
                         // If not, add the book to favorites
                         FavoriteBook favoriteBook = new FavoriteBook();
                         favoriteBook.setUserId(userId);
                         favoriteBook.setBookTitle(book.getTitle());
+                        favoriteBook.setBookAuthor(TextUtils.join(", ", book.getAuthors()));
+                        favoriteBook.setCover(book.getCover());
+                        favoriteBook.setNumberOfPages(book.getNumberOfPages());
 
                         userDao.addToFavorites(favoriteBook);
 
@@ -209,6 +223,9 @@ public class HomeScreen extends AppCompatActivity {
                             .into(bookCover);
                 else
                     bookCover.setImageResource(R.drawable.baseline_menu_book_24);
+            }
+            else {
+
             }
         }
 
