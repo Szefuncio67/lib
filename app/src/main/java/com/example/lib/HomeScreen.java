@@ -38,9 +38,8 @@ import retrofit2.Call;
 public class HomeScreen extends AppCompatActivity {
     public static final String IMAGE_URL_BASE = "http://covers.openlibrary.org/b/id/";
 
-    TextView tName;
     SearchView searchView;
-    Button btnFavorites;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,20 +48,6 @@ public class HomeScreen extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        tName = findViewById(R.id.name);
-        String name = getIntent().getStringExtra("name");
-        tName.setText(name);
-        btnFavorites = findViewById(R.id.xdd);
-        btnFavorites.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String userId = getIntent().getStringExtra("userId");
-                Intent intent = new Intent(HomeScreen.this, FavoritesActivityZ.class);
-                intent.putExtra("userId", userId);
-                startActivity(intent);
-            }
-        });
 
         searchView = findViewById(R.id.search_book);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -87,6 +72,24 @@ public class HomeScreen extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.drawer_menu, menu);
         return true;
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+
+        if (itemId == R.id.nav_profile) {
+            String userId = getIntent().getStringExtra("userId");
+            Intent intent = new Intent(HomeScreen.this, FavoritesActivityZ.class);
+            intent.putExtra("userId", userId);
+            startActivity(intent);
+            return true;
+        } else {
+
+            return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+
 
     private void fetchBooksData(String query) {
         String finalQuery = prepareQuery(query);

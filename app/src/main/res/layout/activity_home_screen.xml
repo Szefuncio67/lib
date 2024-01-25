@@ -39,16 +39,6 @@
             android:queryHint="Enter book name..."
             android:iconifiedByDefault="false" />
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Name" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="fav"
-            android:id="@+id/xdd"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
