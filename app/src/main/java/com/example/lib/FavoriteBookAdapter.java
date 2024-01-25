@@ -22,6 +22,16 @@ import java.util.List;
 public class FavoriteBookAdapter extends RecyclerView.Adapter<FavoriteBookAdapter.FavoriteBookHolder> {
     public static final String IMAGE_URL_BASE = "http://covers.openlibrary.org/b/id/";
     private List<FavoriteBook> favoriteBooks;
+    private boolean showUnread = true;
+    private boolean showInProgress = true;
+    private boolean showRead = true;
+
+    public void setFilters(boolean showUnread, boolean showInProgress, boolean showRead) {
+        this.showUnread = showUnread;
+        this.showInProgress = showInProgress;
+        this.showRead = showRead;
+        notifyDataSetChanged(); // Wymaga ponownego odświeżenia adaptera po zmianie filtrów
+    }
 
     @NonNull
     @Override
@@ -33,8 +43,24 @@ public class FavoriteBookAdapter extends RecyclerView.Adapter<FavoriteBookAdapte
     @Override
     public void onBindViewHolder(@NonNull FavoriteBookHolder holder, int position) {
         FavoriteBook favoriteBook = favoriteBooks.get(position);
-        holder.bind(favoriteBook);
+
+        // Sprawdź stan książki i czy powinna być wyświetlana
+        if ((showUnread && "Unread".equals(favoriteBook.getState())) ||
+                (showInProgress && "In Progress".equals(favoriteBook.getState())) ||
+                (showRead && "Read".equals(favoriteBook.getState()))) {
+            holder.itemView.setVisibility(View.VISIBLE);
+            holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT));
+            holder.bind(favoriteBook);
+        } else {
+            // Ukryj element, jeśli nie spełnia warunków filtrów
+            holder.itemView.setVisibility(View.GONE);
+            holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
+        }
     }
+
+
 
     @Override
     public int getItemCount() {

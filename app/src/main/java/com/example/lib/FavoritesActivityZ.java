@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 import java.util.List;
 
@@ -26,13 +28,45 @@ public class FavoritesActivityZ extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         recyclerView = findViewById(R.id.recyclerViewFavorites);
+        CheckBox unreadCheckbox = findViewById(R.id.checkbox_unread);
+        CheckBox inProgressCheckbox = findViewById(R.id.checkbox_in_progress);
+        CheckBox readCheckbox = findViewById(R.id.checkbox_read);
+
+        unreadCheckbox.setChecked(true);
+        inProgressCheckbox.setChecked(true);
+        readCheckbox.setChecked(true);
+
+
+
         adapter = new FavoriteBookAdapter();
+        adapter.setFilters(unreadCheckbox.isChecked(), inProgressCheckbox.isChecked(), readCheckbox.isChecked());
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
         loadFavoriteBooks();
+
+        unreadCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                adapter.setFilters(isChecked, inProgressCheckbox.isChecked(), readCheckbox.isChecked());
+            }
+        });
+
+        inProgressCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                adapter.setFilters(unreadCheckbox.isChecked(), isChecked, readCheckbox.isChecked());
+            }
+        });
+
+        readCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                adapter.setFilters(unreadCheckbox.isChecked(), inProgressCheckbox.isChecked(), isChecked);
+            }
+        });
     }
 
     @Override
