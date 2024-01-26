@@ -32,6 +32,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import retrofit2.Call;
 
@@ -83,6 +84,7 @@ public class HomeScreen extends AppCompatActivity {
             startActivity(intent);
             return true;
         } else if (itemId == R.id.nav_shakeomat) {
+
             Intent intent = new Intent(HomeScreen.this, ShakeActivity.class);
             startActivity(intent);
             return true;
@@ -116,6 +118,10 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
     }
+
+
+
+
 
     private String prepareQuery(String query) {
         String[] queryParts = query.split("\\s+");

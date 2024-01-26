@@ -12,11 +12,5 @@
         android:max="4"
         android:progressDrawable="@drawable/progress_bar" />
 
-    <TextView
-        android:id="@+id/bookTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Oto twoja wylosowana książka"
-        android:visibility="gone" />
 
 </RelativeLayout>
