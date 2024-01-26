@@ -1,7 +1,10 @@
 
 j
-java:S1192_"HDefine a constant instead of duplicating this literal "Unknown" 3 times.(µêÿıÿÿÿÿ8¦—Á°Ô1
+java:S1192c"HDefine a constant instead of duplicating this literal "Unknown" 3 times.(µêÿıÿÿÿÿ8’Èç´Ô1
+r	java:S117="QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éÎ÷øÿÿÿÿ8üø€µÔ1
 J
-java:S1604'"(Make this anonymous inner class a lambda(¡ì²Àüÿÿÿÿ8‡Ûê°Ô1
+java:S1604)"(Make this anonymous inner class a lambda(¡ì²Àüÿÿÿÿ8”Èç´Ô1
+@
+java:S2119<"Save and re-use this "Random".(Ëòéïùÿÿÿÿ8ãÈç´Ô1
 ;
-java:S2119C"Save and re-use this "Random".(“øÉ”8ì—Á°Ô1
+java:S2119G"Save and re-use this "Random".(“øÉ”8êÈç´Ô1

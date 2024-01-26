@@ -38,6 +38,7 @@ import retrofit2.Call;
 
 public class HomeScreen extends AppCompatActivity {
     public static final String IMAGE_URL_BASE = "http://covers.openlibrary.org/b/id/";
+    private static final int REQUEST_CODE = 1;
 
     SearchView searchView;
 
@@ -81,16 +82,29 @@ public class HomeScreen extends AppCompatActivity {
             String userId = getIntent().getStringExtra("userId");
             Intent intent = new Intent(HomeScreen.this, FavoritesActivityZ.class);
             intent.putExtra("userId", userId);
-            startActivity(intent);
+            startActivityForResult(intent, REQUEST_CODE);
             return true;
         } else if (itemId == R.id.nav_shakeomat) {
 
             Intent intent = new Intent(HomeScreen.this, ShakeActivity.class);
             startActivity(intent);
             return true;
+        } else if(itemId == R.id.nav_logout) {
+            finish();
+            return true;
         } else {
 
             return super.onOptionsItemSelected(item);
+        }
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Sprawdź, czy otrzymaliśmy wynik od aktywności podrzędnej
+        if (requestCode == REQUEST_CODE && resultCode != 3) {
+            // Tutaj możesz wywołać finish(), aby zamknąć obecna aktywność
+            finish();
         }
     }
 

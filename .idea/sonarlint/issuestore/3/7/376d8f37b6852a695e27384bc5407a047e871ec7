@@ -1,15 +1,33 @@
 
+
+java:S1186Y"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ĞŠß±8ÈŞøµÔ1
 
-java:S1450"]Remove the "authorTextView" field and declare it as a local variable in the relevant methods.(Š¥óŒøÿÿÿÿ8Ö„ª­Ô1
+java:S1450"]Remove the "authorTextView" field and declare it as a local variable in the relevant methods.(Š¥óŒøÿÿÿÿ8ËŞøµÔ1
 v
-java:S1450"TRemove the "cover" field and declare it as a local variable in the relevant methods.(‹Ûñ¬øÿÿÿÿ8×„ª­Ô1
+java:S1450"TRemove the "cover" field and declare it as a local variable in the relevant methods.(‹Ûñ¬øÿÿÿÿ8ÌŞøµÔ1
 „
-java:S1450"gRemove the "firstPublishYearTextView" field and declare it as a local variable in the relevant methods.(¾¬İÏ8×„ª­Ô1
+java:S1450"gRemove the "firstPublishYearTextView" field and declare it as a local variable in the relevant methods.(¾¬İÏ8ÍŞøµÔ1
 †
-java:S1450"dRemove the "firstSentenceTextView" field and declare it as a local variable in the relevant methods.(¯®İ•úÿÿÿÿ8Ø„ª­Ô1
+java:S1450 "dRemove the "firstSentenceTextView" field and declare it as a local variable in the relevant methods.(¯®İ•úÿÿÿÿ8ÍŞøµÔ1
 |
-java:S1450"_Remove the "languageTextView" field and declare it as a local variable in the relevant methods.(è³­Æ8Ø„ª­Ô1
+java:S1450!"_Remove the "languageTextView" field and declare it as a local variable in the relevant methods.(è³­Æ8×ŞøµÔ1
+w
+java:S1450#"ZRemove the "lightSensor" field and declare it as a local variable in the relevant methods.(›Îñï8ØŞøµÔ1
 †
-java:S1450"dRemove the "numberOfPagesTextView" field and declare it as a local variable in the relevant methods.(…À•ßøÿÿÿÿ8Ø„ª­Ô1
+java:S1450"dRemove the "numberOfPagesTextView" field and declare it as a local variable in the relevant methods.(…À•ßøÿÿÿÿ8ÙŞøµÔ1
+y
+java:S1450""\Remove the "sensorManager" field and declare it as a local variable in the relevant methods.(Ş¬–„8ÙŞøµÔ1
 ~
-java:S1450"\Remove the "titleTextView" field and declare it as a local variable in the relevant methods.(ë™¿€úÿÿÿÿ8Ø„ª­Ô1
+java:S1450"\Remove the "titleTextView" field and declare it as a local variable in the relevant methods.(ë™¿€úÿÿÿÿ8ÙŞøµÔ1
+c
+java:S1117_"ARename "titleTextView" which hides the field declared at line 27.(Ø­–¹ûÿÿÿÿ8ˆ‚¶Ô1
+d
+java:S1117`"BRename "authorTextView" which hides the field declared at line 28.(•ƒ×ÿÿÿÿÿ8‰‚¶Ô1
+k
+java:S1117a"IRename "numberOfPagesTextView" which hides the field declared at line 29.(Ôºşÿÿÿÿ8±õ˜¶Ô1
+i
+java:S1117b"LRename "firstPublishYearTextView" which hides the field declared at line 31.(ñæÖŸ8±õ˜¶Ô1
+f
+java:S1117c"IRename "firstSentenceTextView" which hides the field declared at line 32.(ÕÓ·‰8±õ˜¶Ô1
+a
+java:S1117d"DRename "languageTextView" which hides the field declared at line 33.(’ÇÈ‚8³õ˜¶Ô1

@@ -139,9 +139,18 @@ public class FavoritesActivityZ extends AppCompatActivity {
         int itemId = item.getItemId();
 
         if(itemId == R.id.home){
+            setResult(3);
             finish();
             return true;
-        } else {
+        }else if (itemId == R.id.nav_shakeomat) {
+
+            Intent intent = new Intent(this, ShakeActivity.class);
+            startActivity(intent);
+            return true;
+        }else if(itemId == R.id.nav_logout) {
+            finish();
+            return true;
+        }else{
 
             return super.onOptionsItemSelected(item);
         }

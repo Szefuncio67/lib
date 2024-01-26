@@ -15,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -55,8 +57,10 @@ public class ShakeActivity extends AppCompatActivity {
     private void fetchRandomBook() {
         BookService bookService = RetrofitInstance.getRetrofitInstance().create(BookService.class);
 
+        int randomI = new Random().nextInt(10);
+        List<String> list_books = new ArrayList<>(Arrays.asList("Dziady", "Harry+Potter", "Wiedźmin", "Pan+Tadeusz", "Lalka", "Krzyżacy", "Ogniem+i+mieczem", "W+pustyni+i+w+puszczy", "Chłopi", "Lalka"));
         // Fetch a large number of books (e.g., 100) without a specific query
-        Call<BookContainer> allBooksApiCall = bookService.findBooks("Dziady");
+        Call<BookContainer> allBooksApiCall = bookService.findBooks(list_books.get(randomI));
 
         allBooksApiCall.enqueue(new Callback<BookContainer>() {
             @Override
