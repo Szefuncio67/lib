@@ -82,6 +82,10 @@ public class HomeScreen extends AppCompatActivity {
             intent.putExtra("userId", userId);
             startActivity(intent);
             return true;
+        } else if (itemId == R.id.nav_shakeomat) {
+            Intent intent = new Intent(HomeScreen.this, ShakeActivity.class);
+            startActivity(intent);
+            return true;
         } else {
 
             return super.onOptionsItemSelected(item);
