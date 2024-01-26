@@ -80,6 +80,17 @@
         </RadioGroup>
 
         <!-- Edit Text for Current Page (visible only when "In Progress" is checked) -->
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/button_delete"
+            android:text="Usun" />
+
         <EditText
             android:id="@+id/editText_current_page"
             android:layout_width="wrap_content"

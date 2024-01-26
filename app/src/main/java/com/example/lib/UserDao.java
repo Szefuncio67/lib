@@ -1,6 +1,7 @@
 package com.example.lib;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -27,6 +28,15 @@ public interface UserDao {
 
     @Update
     void updateFavoriteBook(FavoriteBook favoriteBook);
+
+    @Delete
+    void deleteFavoriteBook(FavoriteBook favoriteBook);
+
+    @Query("SELECT * FROM users WHERE userId = :userId")
+    UserEntity getUserById(String userId);
+
+
+
 
 
 }

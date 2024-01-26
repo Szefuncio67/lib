@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -25,12 +26,19 @@ public class FavoriteBookAdapter extends RecyclerView.Adapter<FavoriteBookAdapte
     private boolean showUnread = true;
     private boolean showInProgress = true;
     private boolean showRead = true;
+    private OnClickListener onClickListener;
 
     public void setFilters(boolean showUnread, boolean showInProgress, boolean showRead) {
         this.showUnread = showUnread;
         this.showInProgress = showInProgress;
         this.showRead = showRead;
         notifyDataSetChanged(); // Wymaga ponownego odświeżenia adaptera po zmianie filtrów
+    }
+    public void setOnClickListener(OnClickListener listener) {
+        this.onClickListener = listener;
+    }
+    interface OnClickListener {
+        void onItemClick(FavoriteBook favoriteBook);
     }
 
     @NonNull
@@ -58,6 +66,14 @@ public class FavoriteBookAdapter extends RecyclerView.Adapter<FavoriteBookAdapte
             holder.itemView.setVisibility(View.GONE);
             holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
         }
+        holder.buttonDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (onDeleteClickListener != null) {
+                    onDeleteClickListener.onDeleteClick(position);
+                }
+            }
+        });
     }
 
 
@@ -71,6 +87,10 @@ public class FavoriteBookAdapter extends RecyclerView.Adapter<FavoriteBookAdapte
         this.favoriteBooks = favoriteBooks;
         notifyDataSetChanged();
     }
+    public List<FavoriteBook> getFavoriteBooks() {
+        return favoriteBooks;
+    }
+
 
     class FavoriteBookHolder extends RecyclerView.ViewHolder {
         private TextView bookTitleTextView;
@@ -80,6 +100,8 @@ public class FavoriteBookAdapter extends RecyclerView.Adapter<FavoriteBookAdapte
         private EditText editTextCurrentPage;
 
         private RadioGroup radioGroup;
+        Button buttonDelete;
+
 
         FavoriteBookHolder(@NonNull View itemView) {
             super(itemView);
@@ -89,6 +111,8 @@ public class FavoriteBookAdapter extends RecyclerView.Adapter<FavoriteBookAdapte
             bookAuthorTextView = itemView.findViewById(R.id.book_author);
             numberOfPagesTextView = itemView.findViewById(R.id.number_of_pages);
             coverImageView = itemView.findViewById(R.id.img_cover);
+            buttonDelete = itemView.findViewById(R.id.button_delete);
+
 
             radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
@@ -122,6 +146,18 @@ public class FavoriteBookAdapter extends RecyclerView.Adapter<FavoriteBookAdapte
                         return true;
                     }
                     return false;
+                }
+            });
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onClickListener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            FavoriteBook favoriteBook = favoriteBooks.get(position);
+                            onClickListener.onItemClick(favoriteBook);
+                        }
+                    }
                 }
             });
 
@@ -177,6 +213,24 @@ public class FavoriteBookAdapter extends RecyclerView.Adapter<FavoriteBookAdapte
                 }
             }
         }
+
     }
+
+    public interface OnDeleteClickListener {
+        void onDeleteClick(int position);
+    }
+
+    private OnDeleteClickListener onDeleteClickListener;
+
+    public void setOnDeleteClickListener(OnDeleteClickListener listener) {
+        this.onDeleteClickListener = listener;
+    }
+    public void removeFavoriteBook(int position) {
+        if (position >= 0 && position < favoriteBooks.size()) {
+            favoriteBooks.remove(position);
+            notifyItemRemoved(position);
+        }
+    }
+
 }
 

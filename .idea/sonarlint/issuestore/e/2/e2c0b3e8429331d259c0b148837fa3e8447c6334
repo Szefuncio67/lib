@@ -1,17 +1,19 @@
 
 J
-java:S1604("(Make this anonymous inner class a lambda(˜ã¯şÿÿÿÿ8§ó‹®Ó1
-E
-java:S1604$"(Make this anonymous inner class a lambda(ÉãÃ®8§ó‹®Ó1
-E
-java:S1604"(Make this anonymous inner class a lambda(á‡¤Å8¨ó‹®Ó1
+java:S1604-"(Make this anonymous inner class a lambda(˜ã¯şÿÿÿÿ8Ä„í®Ô1
 J
-java:S16046"(Make this anonymous inner class a lambda(ç¯€ùÿÿÿÿ8¨ó‹®Ó1
+java:S16045"(Make this anonymous inner class a lambda(˜ã¯şÿÿÿÿ8Ä„í®Ô1
 E
-java:S5411!"(Use a primitive boolean expression here.(ç²ÒÉ8¨ó‹®Ó1
+java:S1604&"(Make this anonymous inner class a lambda(ÉãÃ®8Ä„í®Ô1
+E
+java:S1604"(Make this anonymous inner class a lambda(á‡¤Å8ò›Ş®Ô1
+J
+java:S1604C"(Make this anonymous inner class a lambda(ç¯€ùÿÿÿÿ8Ä„í®Ô1
+E
+java:S5411!"(Use a primitive boolean expression here.(ç²ÒÉ8Å„í®Ô1
 b
-java:S1659"EDeclare "password" and all following declarations on a separate line.(¿ü¡8¬ô‹®Ó1
+java:S1659"EDeclare "password" and all following declarations on a separate line.(¿ü¡8¼œŞ®Ô1
 E
-java:S1659"#Declare "login" on a separate line.(–»¿øúÿÿÿÿ8¬ô‹®Ó1
+java:S1659"#Declare "login" on a separate line.(–»¿øúÿÿÿÿ8¼œŞ®Ô1
 ^
-java:S1126>"AReplace this if-then-else statement by a single return statement.(˜İÿÛ8Çô‹®Ó1
+java:S1126K"AReplace this if-then-else statement by a single return statement.(˜İÿÛ8ÔœŞ®Ô1

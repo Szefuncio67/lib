@@ -11,4 +11,8 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="number_of_pages">Number of pages: %s</string>
+    <string name="first_publish_year">First publish year: %s</string>
+    <string name="language">Language: %s</string>
+    <string name="first_sentence">First sentence: %s</string>
+
 </resources>

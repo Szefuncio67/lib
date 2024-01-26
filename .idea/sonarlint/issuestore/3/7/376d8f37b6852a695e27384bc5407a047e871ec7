@@ -1,9 +1,15 @@
 
 
-java:S1450"]Remove the "authorTextView" field and declare it as a local variable in the relevant methods.(Š¥óŒøÿÿÿÿ8°ú¦þÓ1
+java:S1450"]Remove the "authorTextView" field and declare it as a local variable in the relevant methods.(Š¥óŒøÿÿÿÿ8Ö„ª­Ô1
 v
-java:S1450"TRemove the "cover" field and declare it as a local variable in the relevant methods.(‹Ûñ¬øÿÿÿÿ8±ú¦þÓ1
+java:S1450"TRemove the "cover" field and declare it as a local variable in the relevant methods.(‹Ûñ¬øÿÿÿÿ8×„ª­Ô1
+„
+java:S1450"gRemove the "firstPublishYearTextView" field and declare it as a local variable in the relevant methods.(¾¬ÝÏ8×„ª­Ô1
 †
-java:S1450"dRemove the "numberOfPagesTextView" field and declare it as a local variable in the relevant methods.(…À•ßøÿÿÿÿ8²ú¦þÓ1
+java:S1450"dRemove the "firstSentenceTextView" field and declare it as a local variable in the relevant methods.(¯®Ý•úÿÿÿÿ8Ø„ª­Ô1
+|
+java:S1450"_Remove the "languageTextView" field and declare it as a local variable in the relevant methods.(è³­Æ8Ø„ª­Ô1
+†
+java:S1450"dRemove the "numberOfPagesTextView" field and declare it as a local variable in the relevant methods.(…À•ßøÿÿÿÿ8Ø„ª­Ô1
 ~
-java:S1450"\Remove the "titleTextView" field and declare it as a local variable in the relevant methods.(ë™¿€úÿÿÿÿ8²ú¦þÓ1
+java:S1450"\Remove the "titleTextView" field and declare it as a local variable in the relevant methods.(ë™¿€úÿÿÿÿ8Ø„ª­Ô1

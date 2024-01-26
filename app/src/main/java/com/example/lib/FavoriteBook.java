@@ -32,6 +32,14 @@ public class FavoriteBook {
     @ColumnInfo(name = "actualPage")
     private String actualPage;
 
+    @ColumnInfo(name = "first_publish_year")
+    private String firstPublishYear;
+    @ColumnInfo(name = "language")
+    private String language;
+
+    @ColumnInfo(name = "first_sentence")
+    private String firstSentence;
+
     // Getters and setters
 
     public String getUserId() {
@@ -88,6 +96,30 @@ public class FavoriteBook {
 
     public void setActualPage(String actualPage) {
         this.actualPage = actualPage;
+    }
+
+    public String getFirstPublishYear() {
+        return firstPublishYear;
+    }
+
+    public void setFirstPublishYear(String firstPublishYear) {
+        this.firstPublishYear = firstPublishYear;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public String getFirstSentence() {
+        return firstSentence;
+    }
+
+    public void setFirstSentence(String firstSentence) {
+        this.firstSentence = firstSentence;
     }
 }
 

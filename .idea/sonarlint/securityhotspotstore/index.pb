@@ -33,3 +33,9 @@ c
 3app/src/main/java/com/example/lib/FavoriteBook.java,a\2\a2b5602cc323ed2e7ebc25cea8f798ba43a5d6b1
 i
 9app/src/main/java/com/example/lib/FavoritesActivityZ.java,7\0\7078ca6e73160b077600ccdb13c3527230defbe6
+d
+4app/src/main/java/com/example/lib/ShakeActivity.java,a\2\a279899b7f883de9fb4c6260db08f4a293cdfdb4
+d
+4app/src/main/java/com/example/lib/ShakeDetector.java,f\3\f33d7571ceb3ad8b12c71f1ce742373d19f20791
+u
+Eapp/src/androidTest/java/com/example/lib/ExampleInstrumentedTest.java,d\d\dd8e2bb88e15aed2178a9f3be66e85c11e3cd9e9

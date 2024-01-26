@@ -30,24 +30,37 @@ public class MainActivity extends AppCompatActivity {
                 userEntity.setUserId(userId.getText().toString());
                 userEntity.setPassword(password.getText().toString());
                 userEntity.setName(name.getText().toString());
-                if(validateInput(userEntity)){
+                if (validateInput(userEntity)) {
                     UserDatabase userDatabase = UserDatabase.getUserDatabase((getApplicationContext()));
                     final UserDao userDao = userDatabase.userDao();
+
+                    // Check if userId already exists
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            userDao.registerUser(userEntity);
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(getApplicationContext(), "User Registered", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-
+                            UserEntity existingUser = userDao.getUserById(userEntity.getUserId());
+                            if (existingUser == null) {
+                                // UserId is unique, proceed with registration
+                                userDao.registerUser(userEntity);
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(getApplicationContext(), "User Registered", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            } else {
+                                // UserId already exists, show an error message or take appropriate action
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(getApplicationContext(), "User with this UserId already exists", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
                         }
                     }).start();
-                }else {
-                    Toast.makeText(getApplicationContext(),"Fill all fields!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Fill all fields!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

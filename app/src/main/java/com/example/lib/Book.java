@@ -14,6 +14,15 @@ public class Book {
     @SerializedName("number_of_pages_median")
     private String numberOfPages;
 
+    @SerializedName("first_publish_year")
+    private String firstPublishYear;
+
+    @SerializedName("first_sentence")
+    private List<String> firstSentence;
+
+    @SerializedName("language")
+    private List<String> language;
+
     public String getTitle() {
         return title;
     }
@@ -44,5 +53,29 @@ public class Book {
 
     public void setNumberOfPages(String numberOfPages) {
         this.numberOfPages = numberOfPages;
+    }
+
+    public String getFirstPublishYear() {
+        return firstPublishYear;
+    }
+
+    public void setFirstPublishYear(String firstPublishYear) {
+        this.firstPublishYear = firstPublishYear;
+    }
+
+    public List<String> getFirstSentence() {
+        return firstSentence;
+    }
+
+    public void setFirstSentence(List<String> firstSentence) {
+        this.firstSentence = firstSentence;
+    }
+
+    public List<String> getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(List<String> language) {
+        this.language = language;
     }
 }

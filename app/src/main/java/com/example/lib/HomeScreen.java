@@ -191,7 +191,22 @@ public class HomeScreen extends AppCompatActivity {
                         favoriteBook.setBookTitle(book.getTitle());
                         favoriteBook.setBookAuthor(TextUtils.join(", ", book.getAuthors()));
                         favoriteBook.setCover(book.getCover());
-                        favoriteBook.setNumberOfPages(book.getNumberOfPages());
+                        favoriteBook.setNumberOfPages(getString(R.string.number_of_pages, book.getNumberOfPages()));
+                        if(book.getLanguage() != null){
+                            favoriteBook.setLanguage(TextUtils.join(", ", book.getLanguage()));
+                        }
+                        else{
+                            favoriteBook.setLanguage("undefined");
+                        }
+                        if(book.getFirstSentence() != null){
+                            favoriteBook.setFirstSentence(TextUtils.join(", ", book.getFirstSentence()));
+                        }
+                        else{
+                            favoriteBook.setFirstSentence("No first sentence");
+                        }
+                        favoriteBook.setFirstPublishYear(book.getFirstPublishYear());
+                        favoriteBook.setState("Unread");
+                        favoriteBook.setActualPage("0");
 
                         userDao.addToFavorites(favoriteBook);
 
@@ -240,6 +255,19 @@ public class HomeScreen extends AppCompatActivity {
             intent.putExtra(BookDetails.EXTRA_BOOK_DETAILS_AUTHOR, bookAuthorTextView.getText());
             intent.putExtra(BookDetails.EXTRA_BOOK_DETAILS_NUMBER_OF_PAGES, numberOfPagesTextView.getText());
             intent.putExtra(BookDetails.EXTRA_BOOK_DETAILS_COVER_ID, book.getCover());
+            intent.putExtra(BookDetails.EXTRA_BOOK_DETAILS_FIRST_PUBLISH_YEAR, book.getFirstPublishYear());
+            if(book.getFirstSentence() != null){
+                intent.putExtra(BookDetails.EXTRA_BOOK_DETAILS_FIRST_SENTENCE, TextUtils.join(", ", book.getFirstSentence()));
+            }
+            else{
+                intent.putExtra(BookDetails.EXTRA_BOOK_DETAILS_FIRST_SENTENCE, "No first sentence");
+            }
+            if(book.getLanguage() != null){
+                intent.putExtra(BookDetails.EXTRA_BOOK_DETAILS_LANGUAGE, TextUtils.join(", ", book.getLanguage()));
+            }
+            else{
+                intent.putExtra(BookDetails.EXTRA_BOOK_DETAILS_LANGUAGE, "undefined");
+            }
             startActivity(intent);
         }
     }
