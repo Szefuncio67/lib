@@ -1,6 +1,6 @@
 
 
-java:S1186Y"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ĞŠß±8ÈŞøµÔ1
+java:S1186V"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ĞŠß±8áí¢­Õ1
 
 java:S1450"]Remove the "authorTextView" field and declare it as a local variable in the relevant methods.(Š¥óŒøÿÿÿÿ8ËŞøµÔ1
 v
@@ -20,14 +20,14 @@ java:S1450""\Remove the "sensorManager" field and declare it as a local variabl
 ~
 java:S1450"\Remove the "titleTextView" field and declare it as a local variable in the relevant methods.(ë™¿€úÿÿÿÿ8ÙŞøµÔ1
 c
-java:S1117_"ARename "titleTextView" which hides the field declared at line 27.(Ø­–¹ûÿÿÿÿ8ˆ‚¶Ô1
+java:S1117["ARename "titleTextView" which hides the field declared at line 27.(Ø­–¹ûÿÿÿÿ8˜î¢­Õ1
 d
-java:S1117`"BRename "authorTextView" which hides the field declared at line 28.(•ƒ×ÿÿÿÿÿ8‰‚¶Ô1
+java:S1117\"BRename "authorTextView" which hides the field declared at line 28.(•ƒ×ÿÿÿÿÿ8‰‚¶Ô1
 k
-java:S1117a"IRename "numberOfPagesTextView" which hides the field declared at line 29.(Ôºşÿÿÿÿ8±õ˜¶Ô1
+java:S1117]"IRename "numberOfPagesTextView" which hides the field declared at line 29.(Ôºşÿÿÿÿ8±õ˜¶Ô1
 i
-java:S1117b"LRename "firstPublishYearTextView" which hides the field declared at line 31.(ñæÖŸ8±õ˜¶Ô1
+java:S1117^"LRename "firstPublishYearTextView" which hides the field declared at line 31.(ñæÖŸ8±õ˜¶Ô1
 f
-java:S1117c"IRename "firstSentenceTextView" which hides the field declared at line 32.(ÕÓ·‰8±õ˜¶Ô1
+java:S1117_"IRename "firstSentenceTextView" which hides the field declared at line 32.(ÕÓ·‰8±õ˜¶Ô1
 a
-java:S1117d"DRename "languageTextView" which hides the field declared at line 33.(’ÇÈ‚8³õ˜¶Ô1
+java:S1117`"DRename "languageTextView" which hides the field declared at line 33.(’ÇÈ‚8³õ˜¶Ô1

@@ -2,23 +2,23 @@
 n
 java:S11929"LDefine a constant instead of duplicating this literal "In Progress" 3 times.(µ”éşÿÿÿÿ8±Â¦®Ô1
 J
-java:S1604E"(Make this anonymous inner class a lambda(Ìİ˜¿üÿÿÿÿ8±Â¦®Ô1
+java:S1604D"(Make this anonymous inner class a lambda(Ìİ˜¿üÿÿÿÿ8±Â¦®Ô1
 J
-java:S1604u"(Make this anonymous inner class a lambda(áİ—Ûÿÿÿÿÿ8²Â¦®Ô1
+java:S1604t"(Make this anonymous inner class a lambda(áİ—Ûÿÿÿÿÿ8²Â¦®Ô1
 K
-java:S1604Œ"(Make this anonymous inner class a lambda(¹®Ä¦şÿÿÿÿ8²Â¦®Ô1
+java:S1604ˆ"(Make this anonymous inner class a lambda(¹®Ä¦şÿÿÿÿ8ŒÔ¬­Õ1
 F
-java:S1604—"(Make this anonymous inner class a lambda(ú“Úå8²Â¦®Ô1
+java:S1604’"(Make this anonymous inner class a lambda(ú“Úå8ŒÔ¬­Õ1
 F
-java:S1604©"(Make this anonymous inner class a lambda(ÉãÃ®8²Â¦®Ô1
+java:S1604¤"(Make this anonymous inner class a lambda(ÉãÃ®8Ô¬­Õ1
 V
-java:S3252{"9Use static access with "android.view.View" for "VISIBLE".(‚¹¾¨8Ã¦®Ô1
+java:S3252z"9Use static access with "android.view.View" for "VISIBLE".(‚¹¾¨8Ã¦®Ô1
 S
-java:S3252{"6Use static access with "android.view.View" for "GONE".(‚¹¾¨8Ã¦®Ô1
+java:S3252z"6Use static access with "android.view.View" for "GONE".(‚¹¾¨8Ã¦®Ô1
 \
-java:S1874":Remove this use of "getAdapterPosition"; it is deprecated.(½€¸ğıÿÿÿÿ8Ã¦®Ô1
+java:S1874|":Remove this use of "getAdapterPosition"; it is deprecated.(½€¸ğıÿÿÿÿ8ùÔ¬­Õ1
 ]
-java:S1874›":Remove this use of "getAdapterPosition"; it is deprecated.(à±™¾ÿÿÿÿÿ8”Ã¦®Ô1
+java:S1874–":Remove this use of "getAdapterPosition"; it is deprecated.(à±™¾ÿÿÿÿÿ8ıÔ¬­Õ1
 ]
-java:S1874²":Remove this use of "getAdapterPosition"; it is deprecated.(½€¸ğıÿÿÿÿ8˜Ã¦®Ô1
-?	java:S131Ê""Add a default case to this switch.(ş™ÅŞ8›Ã¦®Ô1
+java:S1874­":Remove this use of "getAdapterPosition"; it is deprecated.(½€¸ğıÿÿÿÿ8Õ¬­Õ1
+?	java:S131Ä""Add a default case to this switch.(ş™ÅŞ8…Õ¬­Õ1

@@ -59,7 +59,7 @@ public class ShakeActivity extends AppCompatActivity {
 
         int randomI = new Random().nextInt(10);
         List<String> list_books = new ArrayList<>(Arrays.asList("Dziady", "Harry+Potter", "Wiedźmin", "Pan+Tadeusz", "Lalka", "Krzyżacy", "Ogniem+i+mieczem", "W+pustyni+i+w+puszczy", "Chłopi", "Lalka"));
-        // Fetch a large number of books (e.g., 100) without a specific query
+
         Call<BookContainer> allBooksApiCall = bookService.findBooks(list_books.get(randomI));
 
         allBooksApiCall.enqueue(new Callback<BookContainer>() {
@@ -89,8 +89,7 @@ public class ShakeActivity extends AppCompatActivity {
     }
 
     private void showRandomBookDetails(Book randomBook) {
-        // You can implement the logic to display the details of the randomly selected book
-        // For example, start a new activity or show a dialog
+
         Intent intent = new Intent(this, BookDetails.class);
         intent.putExtra(BookDetails.EXTRA_BOOK_DETAILS_TITLE, randomBook.getTitle());
         if(randomBook.getAuthors() != null){
@@ -112,7 +111,6 @@ public class ShakeActivity extends AppCompatActivity {
         }else {
             intent.putExtra(BookDetails.EXTRA_BOOK_DETAILS_LANGUAGE, "Unknown");
         }
-        // ... include other details
         startActivity(intent);
         finish();
     }

@@ -61,7 +61,6 @@ public class HomeScreen extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                // Tu możesz obsłużyć zmiany tekstu w SearchView
                 return false;
             }
         });
@@ -101,9 +100,7 @@ public class HomeScreen extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // Sprawdź, czy otrzymaliśmy wynik od aktywności podrzędnej
         if (requestCode == REQUEST_CODE && resultCode != 3) {
-            // Tutaj możesz wywołać finish(), aby zamknąć obecna aktywność
             finish();
         }
     }
@@ -186,7 +183,6 @@ public class HomeScreen extends AppCompatActivity {
             btnAddToFavorites.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // Obsługa dodawania do ulubionych
                     addToFavorites(book);
                 }
             });
@@ -197,15 +193,12 @@ public class HomeScreen extends AppCompatActivity {
             UserDatabase userDatabase = UserDatabase.getUserDatabase(itemView.getContext());
             final UserDao userDao = userDatabase.userDao();
 
-            // Assuming you have the userId from the logged-in user
-            String userId = getIntent().getStringExtra("userId"); // Replace with the actual userId
+            String userId = getIntent().getStringExtra("userId");
 
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    // Check if the book is already in favorites
                     if (userDao.isBookInFavorites(userId, book.getTitle(), TextUtils.join(", ", book.getAuthors())) == null) {
-                        // If not, add the book to favorites
                         FavoriteBook favoriteBook = new FavoriteBook();
                         favoriteBook.setUserId(userId);
                         favoriteBook.setBookTitle(book.getTitle());

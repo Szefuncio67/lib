@@ -77,33 +77,27 @@ public class BookDetails extends AppCompatActivity implements SensorEventListene
     }
 
     public void onSensorChanged(SensorEvent event) {
-        // Pobierz wartość natężenia światła
         float lightIntensity = event.values[0];
 
-        // Zmień kolor tła w zależności od natężenia światła
         changeBackgroundColor(lightIntensity);
     }
 
-    // Metoda interfejsu SensorEventListener - nie używana w tym przypadku
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
     }
 
-    // Metoda do zmiany koloru tła w zależności od natężenia światła
     private void changeBackgroundColor(float lightIntensity) {
-        LinearLayout layout = findViewById(R.id.book_details_layout); // Dodaj ID do layoutu w pliku XML
+        LinearLayout layout = findViewById(R.id.book_details_layout);
         TextView titleTextView = findViewById(R.id.book_title);
         TextView authorTextView = findViewById(R.id.book_author);
         TextView numberOfPagesTextView = findViewById(R.id.number_of_pages);
         TextView firstPublishYearTextView = findViewById(R.id.first_publish_year);
         TextView firstSentenceTextView = findViewById(R.id.first_sentence);
         TextView languageTextView = findViewById(R.id.language);
-        // Dodaj pozostałe pola TextView
 
         int textColor;
         int backgroundColor;
 
-        // Przykładowa zmiana koloru tła i tekstu w zależności od natężenia światła
         if (lightIntensity < 10) {
             backgroundColor = Color.BLACK;
             textColor = Color.WHITE;
@@ -118,17 +112,14 @@ public class BookDetails extends AppCompatActivity implements SensorEventListene
             textColor = Color.BLACK;
         }
 
-        // Ustaw kolor tła
         layout.setBackgroundColor(backgroundColor);
 
-        // Ustaw kolor tekstu dla wszystkich pól TextView
         titleTextView.setTextColor(textColor);
         authorTextView.setTextColor(textColor);
         numberOfPagesTextView.setTextColor(textColor);
         firstPublishYearTextView.setTextColor(textColor);
         firstSentenceTextView.setTextColor(textColor);
         languageTextView.setTextColor(textColor);
-        // Ustaw kolor tekstu dla pozostałych pól TextView
     }
 
 }

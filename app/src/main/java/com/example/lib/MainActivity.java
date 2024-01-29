@@ -34,13 +34,11 @@ public class MainActivity extends AppCompatActivity {
                     UserDatabase userDatabase = UserDatabase.getUserDatabase((getApplicationContext()));
                     final UserDao userDao = userDatabase.userDao();
 
-                    // Check if userId already exists
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
                             UserEntity existingUser = userDao.getUserById(userEntity.getUserId());
                             if (existingUser == null) {
-                                // UserId is unique, proceed with registration
                                 userDao.registerUser(userEntity);
                                 runOnUiThread(new Runnable() {
                                     @Override
@@ -49,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 });
                             } else {
-                                // UserId already exists, show an error message or take appropriate action
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {

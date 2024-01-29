@@ -1,5 +1,6 @@
 package com.example.lib;
 
+import android.annotation.SuppressLint;
 import android.media.Image;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -32,7 +33,7 @@ public class FavoriteBookAdapter extends RecyclerView.Adapter<FavoriteBookAdapte
         this.showUnread = showUnread;
         this.showInProgress = showInProgress;
         this.showRead = showRead;
-        notifyDataSetChanged(); // Wymaga ponownego odświeżenia adaptera po zmianie filtrów
+        notifyDataSetChanged();
     }
     public void setOnClickListener(OnClickListener listener) {
         this.onClickListener = listener;
@@ -49,10 +50,9 @@ public class FavoriteBookAdapter extends RecyclerView.Adapter<FavoriteBookAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FavoriteBookHolder holder, int position) {
+    public void onBindViewHolder(@NonNull FavoriteBookHolder holder, @SuppressLint("RecyclerView") int position) {
         FavoriteBook favoriteBook = favoriteBooks.get(position);
 
-        // Sprawdź stan książki i czy powinna być wyświetlana
         if ((showUnread && "Unread".equals(favoriteBook.getState())) ||
                 (showInProgress && "In Progress".equals(favoriteBook.getState())) ||
                 (showRead && "Read".equals(favoriteBook.getState()))) {
@@ -62,7 +62,6 @@ public class FavoriteBookAdapter extends RecyclerView.Adapter<FavoriteBookAdapte
                     ViewGroup.LayoutParams.WRAP_CONTENT));
             holder.bind(favoriteBook);
         } else {
-            // Ukryj element, jeśli nie spełnia warunków filtrów
             holder.itemView.setVisibility(View.GONE);
             holder.itemView.setLayoutParams(new RecyclerView.LayoutParams(0, 0));
         }
@@ -122,15 +121,12 @@ public class FavoriteBookAdapter extends RecyclerView.Adapter<FavoriteBookAdapte
                         String state = radioButton.getText().toString();
                         editTextCurrentPage.setVisibility(state.equals("In Progress") ? EditText.VISIBLE : EditText.GONE);
 
-
-                        // Set the state in the corresponding FavoriteBook object
                         int adapterPosition = getAdapterPosition();
                         if (adapterPosition != RecyclerView.NO_POSITION) {
                             FavoriteBook favoriteBook = favoriteBooks.get(adapterPosition);
                             favoriteBook.setState(state);
                             editTextCurrentPage.setText(favoriteBook.getActualPage());
 
-                            // Update the state in the database
                             updateFavoriteBookInDatabase(favoriteBook);
                         }
                     }
@@ -141,7 +137,6 @@ public class FavoriteBookAdapter extends RecyclerView.Adapter<FavoriteBookAdapte
                 @Override
                 public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
                     if (actionId == EditorInfo.IME_ACTION_DONE) {
-                        // Handle the action (e.g., save the entered value to the database)
                         handleEditTextAction();
                         return true;
                     }
@@ -181,7 +176,6 @@ public class FavoriteBookAdapter extends RecyclerView.Adapter<FavoriteBookAdapte
                 FavoriteBook favoriteBook = favoriteBooks.get(adapterPosition);
                 favoriteBook.setActualPage(currentPage);
 
-                // Update the actual page in the database
                 updateFavoriteBookInDatabase(favoriteBook);
             }
         }

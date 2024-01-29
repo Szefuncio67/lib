@@ -46,7 +46,6 @@ public class FavoritesActivityZ extends AppCompatActivity {
         adapter.setOnDeleteClickListener(new FavoriteBookAdapter.OnDeleteClickListener() {
             @Override
             public void onDeleteClick(int position) {
-                // Obsługa kliknięcia przycisku delete
                 deleteFavoriteBook(position);
             }
         });
@@ -54,7 +53,6 @@ public class FavoritesActivityZ extends AppCompatActivity {
         adapter.setOnClickListener(new FavoriteBookAdapter.OnClickListener() {
             @Override
             public void onItemClick(FavoriteBook favoriteBook) {
-                // Launch BookDetails activity with book details
                 Intent intent = new Intent(FavoritesActivityZ.this, BookDetails.class);
                 intent.putExtra(BookDetails.EXTRA_BOOK_DETAILS_TITLE, favoriteBook.getBookTitle());
                 intent.putExtra(BookDetails.EXTRA_BOOK_DETAILS_AUTHOR, favoriteBook.getBookAuthor());
@@ -63,7 +61,6 @@ public class FavoritesActivityZ extends AppCompatActivity {
                 intent.putExtra(BookDetails.EXTRA_BOOK_DETAILS_FIRST_PUBLISH_YEAR, favoriteBook.getFirstPublishYear());
                 intent.putExtra(BookDetails.EXTRA_BOOK_DETAILS_FIRST_SENTENCE, favoriteBook.getFirstSentence());
                 intent.putExtra(BookDetails.EXTRA_BOOK_DETAILS_LANGUAGE, favoriteBook.getLanguage());
-                // Add other book details here
                 startActivity(intent);
             }
         });
@@ -117,7 +114,6 @@ public class FavoritesActivityZ extends AppCompatActivity {
                         public void run() {
                             adapter.removeFavoriteBook(position);
 
-                            // Refresh the list after removal
                             loadFavoriteBooks();
                         }
                     });
@@ -160,7 +156,6 @@ public class FavoritesActivityZ extends AppCompatActivity {
         UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
         UserDao userDao = userDatabase.userDao();
 
-        // Assuming you have the userId from the logged-in user
         String userId = getIntent().getStringExtra("userId");
 
         new Thread(new Runnable() {
