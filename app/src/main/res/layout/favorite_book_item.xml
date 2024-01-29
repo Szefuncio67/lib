@@ -17,10 +17,9 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
             android:layout_marginStart="25dp"
-            android:scaleType="centerInside"
-            android:contentDescription="Book cover" />
+            android:contentDescription="Book cover"
+            android:scaleType="centerInside" />
 
         <TextView
             android:id="@+id/book_title"
